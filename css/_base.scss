@@ -1,0 +1,18 @@
+//On définit ici le style par défaut des balises présentes sur le site, peu importe où elles se trouvent (le style pourrait être écrasé par la suite).
+// N'implique habituellement que des sélecteurs de balise et des sélecteurs d'attribut. Ne pas utiliser de classe ni de !important.
+@import "reset";
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    color:$colorText;
+    background-color:$colorBg;
+}
+
+
+a,a:link,a:visited,a:hover,a:active{
+    text-decoration: none;
+}

@@ -1,0 +1,672 @@
+// "Layouts change. Components are fluid".
+// Parties réutilisables du design. C'est la chair du site. (sections dans une sidebar, navigation, liste de produits, produits, callout)
+// Chaque module doit être pensé pour exister indépendamment pour conserver la flexibilité de la page. 
+// Les modules pourraient normalement être déplacés dans le site ou vers un autre site sans se casser. 
+// On doit donc résister à la tentation d'utiliser des sélecteurs d'élément s'ils ne sont pas sémantiques (span, div) en ajoutant plutôt des classes communes.
+// Utiliser les sélecteurs enfant (>) le plus possible, mais en respectant la loi d'Inception.
+
+// ---------------------- SECTION HERO ----------------------------------
+
+
+.hero{    
+     
+    
+    background-image: url(../img/hero_mobile.jpg);
+    height:$heroHeightMobile;
+    background-size: cover;
+    text-align: center;
+    @include convertFontToRem(30);
+    text-transform: uppercase;
+    padding:2em 1em;
+    position:relative;
+    resize: both;
+    
+    @include mq(small){
+        height:$heroHeightSmall;
+        background-image: url(../img/hero_small.jpg);
+
+    }
+    @include mq(large){
+        margin-top:0;
+        margin-bottom:$navHeightSmall;
+        background-image: url(../img/hero_large.jpg);
+
+    }
+    
+    @include mq(large){
+        height:$heroHeightLarge;
+        @include convertFontToRem(68);
+    }
+        .hero-header{
+            text-align: center;
+            position: absolute;
+            left:0;
+            right:0;
+            top:40%;
+            
+        }
+   
+    
+    
+
+    .hero-title{
+        color: white;
+        padding-bottom: 2.5vh;
+      
+    }
+    
+    .hero-subtitle{
+        color: white;
+        font-size: 0.5em;
+        letter-spacing: 0.15em;
+        padding-bottom: 2.5vh;
+
+    }
+    .hero-logo{
+        width:10vw;
+        margin: 0 auto;
+        padding-bottom: 2.5vh;
+    }
+}
+
+// ---------------------- NAVIGATION ----------------------------------
+
+
+.nav-wrapper{
+    position:relative;
+    z-index:1;
+    
+    @include mq(small){
+        position: absolute;
+        left:0;
+        right:0;
+        top:0;
+    }
+
+
+
+    @include mq(large){
+        top:$heroHeightLarge;
+    }
+    
+    .nav-mask{
+        position: absolute;
+        overflow: hidden;
+        height: $heroHeightMobile;
+        width: 60%;
+        transition: width 0.4s ease-in-out;
+        background-color: $colorVedette;
+        text-decoration: none;
+        @include mq(small){
+            height:$heroHeightSmall;
+            //width: 60%;
+
+        }
+        @include mq(large){
+            width: 100vw;
+            height: $heroHeightLarge;
+            color: $colorText;
+            background-color: white;
+            transition: height 0.4s ease-in-out;
+
+        }
+    }
+    
+    .burger{
+        z-index:2;
+        position: absolute;
+        top: 1.5vh;
+        //transform:translateY(120%);
+        left: 7vw;
+        font-size:2rem;
+        transition:color ease-out .5s;
+
+        @include mq(small){
+            top: 1.5vh;
+            left: 6vw;        }
+
+        @include mq(large){
+            display: none;
+        }
+        
+        &::before{
+            color: white;
+        }
+
+        &:link,&:visited{
+            color:darken($colorText,45%);
+        }
+        
+        &:hover,&:active{
+            color:darken($colorText,75%);
+        }
+    }
+}
+
+.links-container{
+    display: flex;
+    justify-content: center;
+}
+
+.links{
+    flex-basis: 80%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 2em;
+
+    @include mq(large){
+        flex-direction: row;
+        height:$stickyNavheight;
+        text-align: center;
+        padding-top: 0;
+
+    }
+}
+
+.links-item{
+   margin:0.5rem 0;
+    
+    @include mq(large){
+        margin:0 auto;
+    }
+}
+
+.link{
+    font-size:1em;
+    position: relative;
+    display:block;
+    transition:color ease-out 1s;
+    margin-top: 1em;
+    color: white;
+    @include mq(small){
+        font-size:2em;
+
+    }
+
+    @include mq(large){
+        margin-top: 0em;
+
+        font-size:1em;
+
+    }
+    
+
+    &:not(.actif):hover .link-content{
+        transform: translateY(10%);
+        color: $colorTextMenu;
+        text-decoration: underline;
+    }
+    
+  
+
+    &:not(.actif){
+        margin-left:.5em;
+        @include mq(small){
+            margin-left:0;
+        }
+    }
+
+    &::after{
+
+        @include mq(small){
+            content:"";
+            position: absolute;
+            left:0;
+            right:0;
+            bottom:0;
+            height: 2px;
+            background-color: $colorSignet;
+            transform: scaleY(0);
+            transition: transform ease-out 1s;
+        }
+    }
+       
+    @include mq(large){
+        font-size:1em;
+        line-height: $stickyNavheight;
+        display: inline-block;
+        height:$stickyNavheight;
+    }
+}
+
+.link-content{    
+  
+
+    @include mq(large){
+        color: $colorTextMenu;
+        display: block;
+        transition:transform 1s ease-out;
+    }
+}
+
+.fa-facebook-official{
+    color: white;
+
+    &:hover{
+        color: $colorText;
+    }
+
+    @include mq(large){
+        color: $colorText;
+        &:hover{
+            transform: translateY(20%);
+            color: $colorSerie;
+            transition: transform 1s ease-out;
+        }
+    }
+
+}
+.fa-twitter-square{
+    color: white;
+
+    &:hover{
+        color: $colorText;
+    }
+
+    @include mq(large){
+        color: $colorText;
+        &:hover{
+            transform: translateY(20%);
+            color: $colorSerie;
+            transition: transform 1s ease-out;
+        }
+    }
+
+}
+
+
+
+// ---------------------- SECTION Profil ----------------------------------
+
+.profil{
+    background-color: $colorSignet;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+    @include mq(small){
+        height: 18vh;
+
+    }
+
+    @include mq(large){
+        height: 26vh;
+
+    }
+}
+
+
+.photo-profil{
+    //position: relative;
+    border-radius: 50%;
+    width: auto;
+    height: 80%;
+    bottom: 0;
+
+    &:hover{
+        filter: opacity(0.8);
+    }
+}
+    .profil-detail{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+    color: #FDECEF;
+    
+    .nom-usager{
+    font-size: 1.5em;
+    margin-bottom: .4em;
+    }
+    .abonne{
+    color: darken($color: #FDECEF, $amount: 25%)  
+    }
+}
+
+// ---------------------- SECTION ABONNEMENT ----------------------------------
+
+.search-container{
+    margin-top: 1em;
+    margin-bottom: 1em;    
+.search-box {
+    width: 10em;
+    height: 3.5em;
+    position: relative;
+    margin: 0 auto;
+  }
+  .search-box input,
+  .search-box .fa-search {
+    transition-duration: .3s;
+  }
+  
+  input {
+    position: absolute;
+    top: 0;
+    right: -7em;
+    bottom: 0;
+    width: 100%;
+    border: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;        
+    margin: 0;
+    height: 3em;
+    z-index: 2;
+    outline: none;
+    color:$colorText;
+    background: transparent;
+    border: 1px solid $colorText;
+    border-radius: .5em;
+  }
+  
+  .search-box input:focus {
+    color: white;
+    border-color: $colorText;
+    width: 26em;
+  }
+  
+  input:focus ~ .fa-search {
+    opacity: 1;
+    z-index: 3;
+    color: white;
+  }
+  
+  .search-box .fa-search {
+    position: absolute;
+    top: 0;
+    left: 6em;
+    bottom: 0;
+    line-height: 1.2em;
+
+    width: 2.5em;
+    text-align: center;
+    z-index: 1;
+    cursor: pointer;
+    opacity: .8;
+  }
+  @include mq(large){
+    .search-box {
+        width: 10em;
+        height: 3.5em;
+        position: relative;
+        margin: 0 auto;
+      }
+      .search-box input,
+      .search-box .fa-search {
+        transition-duration: .3s;
+      }
+      
+      input {
+        position: absolute;
+        top: 0;
+        right: -35em;
+        bottom: 0;
+        width: 100%;
+        border: 0;
+        margin-top: 1em;
+        margin-bottom: 1em;        
+        margin: 0;
+        height: 3em;
+        z-index: 2;
+        outline: none;
+        color:$colorText;
+        background: transparent;
+        border: 1px solid $colorText;
+        border-radius: .5em;
+      }
+      
+      .search-box input:focus {
+        color: white;
+        border-color: $colorText;
+        width: 26em;
+      }
+      
+      input:focus ~ .fa-search {
+        opacity: 1;
+        z-index: 3;
+        color: white;
+      }
+      
+      .search-box .fa-search {
+        position: absolute;
+        top: 0;
+        left: 19em;
+        line-height: 1.2em;
+        bottom: 0;
+        width: 2.5em;
+        text-align: center;
+        z-index: 1;
+        cursor: pointer;
+        opacity: .8;
+      }
+}
+}
+//--------------------------------------------------------------------------------------
+
+
+.abonnements{
+    margin: 0 auto;
+    
+}
+
+
+
+
+
+.container-serie{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: space-around;
+    margin: 0 auto;
+    @include mq(small){
+        flex-direction: row;
+        //justify-content: space-around;
+
+    }
+
+    @include mq(large){
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1150px;
+    }
+}
+
+.serie{
+      
+    margin: 0 auto;
+    width: auto;   
+    height: auto;
+    display: flex;
+    justify-content: space-around;   
+    padding: 1em;
+    margin-bottom: 2em;
+    background-color: $colorSerie;
+    color: $colorText;
+    position:relative;
+    
+   
+    
+    @include mq(large){
+        flex-direction: column;
+        justify-content: space-around;
+
+    }
+}
+    .serie-info{
+        position:relative;
+        margin: 0 auto;
+        margin-left: 1em;
+        text-align: center;
+        line-height: 2em;
+    color: $colorText;
+
+        @include mq(large){
+            margin-left: 0;
+
+        }
+    }
+    
+    .serie-titre{
+        font-size: 1.2em;
+        color: $colorText;
+
+    }
+
+.serie-affiche{
+    width: 10rem;
+    height: 15rem;
+    color: $colorText;
+
+    display: block;
+    position:relative;
+}
+.fa {
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+        color: $colorText;
+
+  }
+
+
+
+.serie-vu{
+    display:inline-block;
+    font-size: 1.4em;
+    margin-right:0.2em;
+    color: $colorText;
+
+    
+    &:link,&:visited{
+        color:$colorText;
+    }
+    &:hover,&active{
+        color:lighten($colorText,10%);
+    }
+}
+.serie-dispo{
+    display:inline-block;
+    font-size: 1.4em;
+    margin-right:0.2em;
+    margin-bottom: 1em; 
+    
+    &:link,&:visited{
+        color:$colorText;
+    }
+    &:hover,&active{
+        color:lighten($colorText,10%);
+    }
+}
+
+.serie-desabonner::before{
+
+
+    content: "Se désabonner";
+border: none;
+color: black;
+padding: 5px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 14px;
+cursor: pointer;
+-webkit-appearance: none;
+
+}
+.serie-abonner::after{
+    display: inline-block;
+    -webkit-appearance: none;
+
+    content: "S'abonner";
+    border: none;
+    color: $colorText;
+    padding: 5px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+// ---------------------- SECTION Vedette ----------------------------------
+
+
+.serie-vedette{
+    display:flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: $colorVedette;
+    
+
+    @include mq(large){
+        flex-direction: column;
+        margin: 0 auto;
+        justify-content: center;
+    }
+}
+
+
+.vedette{
+    justify-content: center;
+    background-color: $colorVedette;
+    //color:$colorTextVedette;
+    text-align:center;
+    display: block;
+    padding:1.5em 0 1.5em;
+    margin: 0 auto;
+    
+    &:link,&:visited,&:hover,&:active{
+        color:$colorTextVedette;
+    }
+    
+    .vedette-affiche{
+        width: 20rem;
+        //height: auto;
+        margin: 0 auto;
+        margin-top: 1.5em;
+        
+        @include convertFontToRem(24);
+
+    }
+    
+    .vedette-title{
+        text-transform: capitalize;
+        margin: 0 auto;        
+        @include convertFontToRem(24);
+        
+    }
+    
+    .vedette-description{        
+        width:85%;
+        text-align: center;
+        margin:0 auto;
+        @include convertFontToRem(14);   
+        line-height:1.5;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+.slick-next.slick-arrow{
+    opacity: 0;
+}
+.slick-prev.slick-arrow{
+        opacity: 0;
+
+}
+//-------------------------------------------------------
+
+footer{
+    font-size: .7em;
+    color: $colorTextVedette;
+    text-align: center;
+    background-color: $colorSignet;
+    height: 1vh;
+    align-self: center;
+}

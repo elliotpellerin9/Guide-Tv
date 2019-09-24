@@ -1,0 +1,35 @@
+//On déclare ici les variables en les séparant en catégories (couleurs, polices, tailles, media queries...)
+//MediaQueries
+//Modifier les valeurs en fonction du design du site
+$baseSize:16;
+
+$breakpoints:(
+    'small':(740/$baseSize)*1em,
+    'large':(1100/$baseSize)*1em,
+
+
+);
+
+$baseSize:16;
+
+
+$stickyNavheight:5rem;
+
+$heroHeightMobile:50vh;
+$heroHeightSmall:70vh;
+$heroHeightLarge:100vh;
+$navHeightMobile:100vh;
+
+$navHeightSmall:$stickyNavheight;
+
+
+$colorTextMenu:(black);
+
+$colorText:(#FDECEF);
+$colorTextVedette:#FDECEF;
+$colorVedette: lighten(#042940,10%);
+$colorBg:lighten(#042940,15%);
+$colorSerie:darken(rgba(114, 219, 242, 0.2), 25%);
+$colorSignet:(#042940);
+$colorDot:#FFFFFF;
+

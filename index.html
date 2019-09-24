@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Guide - TV</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/slick/slick.css">
+    <link rel="stylesheet" href="vendors/slick/slick-theme.css">
+    <!-- IMPORTANT POUR QUE CSS soit supérieure -->
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    <div class="nav-wrapper">
+       <a href="#" class="burger fa-navicon fa"></a>
+       <div class="nav-mask hidden">
+            <nav class="container nav">
+                <div class="row links-container">
+                    <ul class="links">
+                        <li class="links-item"><a class="link" href="#hero"><span class="link-content">Accueil</span></a></li>
+                        <li class="links-item"><a class="link lnk-serie-vedette" href="#serie-vedette"><span class="link-content">Séries en Vedette</span></a></li>
+                        <li class="links-item"><a class="link lnk-abonnements" href="#abonnements"><span class="link-content">Abonnements</span></a></li>
+                        <li class="links-item"><a class="link" href="#"><span class="link-content">Déconnexion</span></a></li>
+                        <li class="links-item"><a class="link" href="#"><i class="fa fa-facebook-official" id="facebook"></i></a></li>
+                        <li class="links-item"><a class="link" href="#"><i class="fa fa-twitter-square" id="twitter"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <header class="hero" id="hero">
+       <div class="hero-header id="hero">
+            <h1 class="hero-title">Guide Tv</h1>
+            <img src="logo/SVG/logo.svg" alt="" class="hero-logo">
+            <h2 class="hero-subtitle">« Votre dépendance finalement encouragée ».</h2>
+       </div>
+    </header>
+    
+    <main>
+        <section class="profil">
+            <img class="photo-profil" src="img/profil.jpg" alt="">
+                    
+            <div class="profil-detail"> 
+                <h2 class="nom-usager">Ivon Tremblay</h2>
+                <div class="abonne">682 abonnées</div>
+            </div>
+        
+        </section>
+
+
+        <section class="serie-vedette">
+            <ul class="vedettes-row" id="serie-vedette">
+                <li class="vedettes-item">
+                    <a href="" class="vedette">
+                        <h3 class="vedette-title">Fargo.</h3>
+                        <img src="img/fargo.jpg" alt="image de la série fargo" class="vedette-affiche">
+                        <p class="vedette-description">Les Gerhardt reçoivent une proposition inattendue, et deux meurtriers surprenants essaient de nettoyer les dégâts qu'ils ont faits.</p>
+                            <div class="vedette-date">14 janvier 2019</div>
+                    </a>
+                </li>
+                <li class="vedettes-item">
+                    <a href="" class="vedette">
+                        <h3 class="vedette-title">Homeland.</h3>
+                        <img src="img/homeland2.jpg" alt="image de la série fargo" class="vedette-affiche">
+                        
+                        <p class="vedette-description">Saul ne fait plus partie de la CIA et Carrie se voit confier un poste à l’étranger, ce qui l'amènera à circuler dans des régions sensibles du globe.</p>
+                        <div class="vedette-date">5 janvier 2019</div>
+                    </a>
+                </li>
+                <li class="vedettes-item">
+                    <a href="" class="vedette">
+                        <h3 class="vedette-title">The americans.</h3>
+                        <img src="img/the-americans.jpg" alt="image de la série the americans" class="vedette-affiche">                        
+                        <p class="vedette-description">Le couple Jennings se dispute encore sur l'avenir de leur fille : la laisser vivre sa vie ou accepter que le KGB ne la forme à son tour à être un agent infiltré. Elizabeth perd une liste de noms, trahie par son contact, et Philip tente de rattraper le coup. Stan essaie de sauver son mariage.</p>    
+                        <div class="vedette-date">9 janvier 2019</div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="abonnements" id="abonnements">
+            <div class="search-container">
+                     <div class="search-box">
+                        <input placeholder="    Je veux ..."><i class="fa fa-search"></i>
+                    </div>
+            </div>
+            <div class="container-serie">
+                    <section class="serie">
+                        <img src="img/affair.jpg" alt="" class="serie-affiche">
+                        <div class="serie-info">  
+                            <h4 class="serie-titre">Affair</h4>
+                            <i onclick="favorie(this)" class="fa-heart fa"></i>
+                            <div href="#" class=""><span class="serie-vu">43</span>épisode regardé</div>
+                            <div href="#" class=""><span class="serie-dispo">43</span>épisode disponible</div>
+                            <button onclick="desabonner(this)" type="button" value="abonné" class="serie-desabonner"></button>
+                        </div>
+                    </section>
+                
+                    <section class="serie">
+                        <img src="img/atlanta.jpg" alt="" class="serie-affiche">
+                        <div class="serie-info">  
+                            <h4 class="serie-titre">Atlanta</h4>
+                            <i onclick="favorie(this)" class="fa-heart fa"></i>
+                            <div href="#" class=""><span class="serie-vu">43</span>épisode regardé</div>
+                            <div href="#" class=""><span class="serie-dispo">43</span>épisode disponible</div>
+                            <button onclick="desabonner(this)" type="button" value="abonné" class="serie-desabonner"></button>
+                        </div>
+                    </section>
+            
+                    <section class="serie">
+                        <img src="img/chance.jpg" alt="" class="serie-affiche">
+                        <div class="serie-info">  
+                            <h4 class="serie-titre">Chance</h4>
+                            <i onclick="favorie(this)" class="fa-heart fa"></i>
+                            <div href="#" class=""><span class="serie-vu">43</span>épisode regardé</div>
+                            <div href="#" class=""><span class="serie-dispo">43</span>épisode disponible</div>
+                            <button onclick="desabonner(this)" type="button" value="abonné" class="serie-desabonner"></button>
+                        </div>
+                    </section>
+           
+                    <section class="serie">
+                        <img src="img/gothrones.jpg" alt="" class="serie-affiche">
+                        <div class="serie-info">  
+                            <h4 class="serie-titre">Game of thrones</h4>
+                            <i onclick="favorie(this)" class="fa-heart fa"></i>
+                            <div href="#" class=""><span class="serie-vu">43</span>épisode regardé</div>
+                            <div href="#" class=""><span class="serie-dispo">43</span>épisode disponible</div>
+                            <button onclick="desabonner(this)" type="button" value="abonné" class="serie-desabonner"></button>
+                        </div>
+                    </section>
+          
+                    <section class="serie">
+                        <img src="img/homeland.jpg" alt="" class="serie-affiche">
+                        <div class="serie-info">  
+                            <h4 class="serie-titre">Homeland</h4>
+                            <i onclick="favorie(this)" class="fa-heart fa"></i>
+                            <div href="#" class=""><span class="serie-vu">43</span>épisode regardé</div>
+                            <div href="#" class=""><span class="serie-dispo">43</span>épisode disponible</div>
+                            <button onclick="desabonner(this)" type="button" value="Input Button" class="serie-desabonner"></button>
+                        </div>
+                    </section>
+             
+                    <section class="serie">
+                        <img src="img/killong.jpg" alt="" class="serie-affiche">
+                        <div class="serie-info">  
+                            <h4 class="serie-titre">The killing</h4>
+                            <i onclick="favorie(this)" class="fa-heart fa"></i>
+                            <div href="#" class=""><span class="serie-vu">43</span>épisode regardé</div>
+                            <div href="#" class=""><span class="serie-dispo">43</span>épisode disponible</div>
+                            <button onclick="desabonner(this)" type="button" value="abonné" class="serie-desabonner"></button>
+                        </div>
+                    </section>
+                
+                    <section class="serie">
+                        <img src="img/mfamily.jpg" alt="" class="serie-affiche">
+                        <div class="serie-info">  
+                            <h4 class="serie-titre">Modern family</h4>
+                            <i onclick="favorie(this)" class="fa-heart fa"></i>
+                            <div href="#" class=""><span class="serie-vu">43</span>épisode regardé</div>
+                            <div href="#" class=""><span class="serie-dispo">43</span>épisode disponible</div>
+                            <button onclick="desabonner(this)" type="button" value="abonné" class="serie-desabonner"></button>
+                        </div>
+                    </section>
+              
+                    <section class="serie">
+                        <img src="img/nightof.jpg" alt="" class="serie-affiche">
+                        <div class="serie-info">  
+                            <h4 class="serie-titre">The night of</h4>
+                            <i onclick="favorie(this)" class="fa-heart fa"></i>
+                            <div href="#" class=""><span class="serie-vu">43</span>épisode regardé</div>
+                            <div href="#" class=""><span class="serie-dispo">43</span>épisode disponible</div>
+                            <button onclick="desabonner(this)" type="button" value="abonné" class="serie-desabonner"></button>
+                        </div>
+                    </section>
+               
+                    <section class="serie">
+                        <img src="img/wdead.jpg" alt="" class="serie-affiche">
+                        <div class="serie-info">  
+                            <h4 class="serie-titre">The walking dead</h4>
+                            <i onclick="favorie(this)" class="fa-heart fa"></i>
+                            <div href="#" class=""><span class="serie-vu">43</span>épisode regardé</div>
+                            <div href="#" class=""><span class="serie-dispo">43</span>épisode disponible</div>
+                            <button onclick="desabonner(this)" type="button" value="abonné" class="serie-desabonner"></button>
+                        </div>
+                    </section>
+               
+                        <section class="serie">
+                            <img src="img/westworld.jpg" alt="" class="serie-affiche">
+                            <div class="serie-info">  
+                                <h3 class="serie-titre">West world</h3>
+                                <i onclick="favorie(this)" class="fa-heart fa"></i>
+                                <div href="#" class=""><span class="serie-vu">43</span>épisode regardé</div>
+                                <div href="#" class=""><span class="serie-dispo">43</span>épisode disponible</div>
+                            <button onclick="desabonner(this)" type="button" value="abonné" class="serie-desabonner"></button>
+                            </div>
+                        </section>
+                </div>
+        </section>
+    </main>
+    <footer class="bas-page">
+        <div>2018 - Techniques d'intégration multimédia. Réalisé à des fins pédagogiques dans le cadre du cours d'Intégration Web II</div>
+    </footer>
+    
+    
+    <!--jquery-->
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  
+  <script src="vendors/jquery.smooth-scroll.js"></script>
+  <script src="vendors/slick/slick.min.js"></script>
+  <script src="vendors/jquery.waypoints.min.js"></script>
+  
+  <script>
+      $(function(){
+          //burger menu
+        $('.burger').click(function(){
+            $('.nav-mask').toggleClass('hidden');
+        });
+
+        var heroRef$ = $('.hero');
+        var navRef$ = $('.nav-wrapper');
+        var heroHeight;
+        var partieDefilee;
+
+        function init(){
+            checkScroll();
+        }
+
+        function checkScroll(){
+            //récupère la hauteur de la section héros
+            heroHeight = heroRef$.outerHeight(false);
+            //hauteur de la partie déjà défilée
+            partieDefilee = $(document).scrollTop();
+
+            if(partieDefilee >= heroHeight){
+                //ajoute sticky à nav-wrapper
+                navRef$.addClass('sticky');
+            } else {
+                //enlève sticky à nav-wrapper
+                navRef$.removeClass('sticky');
+            }
+        }
+
+        init();
+
+        $(window)
+        .resize(checkScroll)
+        .scroll(checkScroll);
+
+      });
+  </script>
+  
+  <script>
+      $(function(){
+
+          //exécuté une fois le html chargé
+
+          //smoothscroll
+          $('.link').smoothScroll({speed: 1000, offset:-100});
+
+          //carrousel
+          $('.vedettes-row').slick({
+            
+            autoplay: true,
+            dots: true,
+            centerMode: true,
+            focusOnSelect: true,
+            autoplaySpeed: 4000,
+
+            infinite: true,
+  
+            slidesToShow: 1,
+  
+            slidesToScroll: 1,
+
+            swipe: true,
+            
+ 
+
+
+            responsive: [{
+                breakpoint: 539,
+                settings: {
+                    
+                    slidesToShow: 1,
+                    swipe: true
+                    
+                }
+            }]
+            
+          });
+        
+          //waypoint
+          $('.abonnements').waypoint(function(){
+            $('.link').removeClass('actif');
+            $('.lnk-abonnements').addClass('actif');
+          },{
+            offset: '10%'
+          });
+
+          $('.vedettes').waypoint(function(direction){
+
+            //retirer la classe actif à tous les link
+            $('.link').removeClass('actif');
+
+            if(direction == 'down'){
+                //ajouter la classe actif à lnk-serie-vedette
+            $('.lnk-abonnements').addClass('actif'); 
+        }else{ 
+            $('.lnk-serie-vedette').addClass('actif'); } 
+            },{
+            offset: '40%'
+          });
+      });
+  </script>
+
+<script>
+;(function(){
+	
+	'use strict';
+
+	var expandSearch = {
+		init: function(){
+
+			var _this = this,
+			_searchContainers = document.querySelectorAll('.expandSearch');
+
+			for( var _index in _searchContainers ){
+				if( typeof _searchContainers[ _index ] === 'object' ){
+					_this.searchFunctions( _searchContainers[ _index ] );
+				}
+			}
+
+		},
+
+		searchFunctions: function( _thisSearch ){
+				
+			var _nodes = _thisSearch.childNodes;
+
+			//a click
+			_nodes[3].addEventListener('click',function(e){
+
+				if( _thisSearch.attributes.class.value.indexOf("showSearch") > -1 ){
+					_thisSearch.attributes.class.value = 'expandSearch';
+				}
+				else{
+					_thisSearch.attributes.class.value = 'expandSearch showSearch';
+				}
+
+				if( !e.preventDefault() ){ e.returnValue = false; }
+			});
+
+		}
+
+	};
+
+
+	//execute
+	expandSearch.init();
+
+}());
+
+</script>
+
+  <script>
+    function favorie(x) {
+        x.classList.toggle("fa-heart-o");
+    }
+  </script>
+
+  <script>
+        function desabonner(x) {
+                //x.classList.removeClass("serie-desabonner");
+                x.classList.toggle("serie-desabonner");
+                x.classList.toggle("serie-abonner");
+        }
+  </script>
+</body>
+</html>
